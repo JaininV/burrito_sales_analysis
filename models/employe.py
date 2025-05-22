@@ -5,5 +5,15 @@ import json
 
 # Simulated async function
 def getEmployeDataApi():
-    return "A"
+    query = "SELECT * FROM employe"
+
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return {
+        'data': result
+    }
 
