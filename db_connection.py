@@ -7,12 +7,13 @@ config = {
     'database': 'fbb_database'
 }
 
-def database_connection(config):
-    try:
-        connection = mysql.connector.connect(**config)
-        cursor = connection.cursor(buffered=True)
-        return "database connected!"
-    except mysql.connector.Error as err:
-        return err
+try:
+    connection = mysql.connector.connect(**config)
+    cursor = connection.cursor(buffered=True)
 
-database_connection(config)
+except mysql.connector.Error as err:
+    print(err)
+
+    
+
+
