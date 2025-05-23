@@ -8,6 +8,6 @@ def employe_data_api():
     return data
 
 @employe_blueprint.route('/employe/add', methods=['PUSH'])
-def employe_data_api():
-    data = employeData()
+def add_employe_data_api():
+    data = addEmployeData()
     return data
