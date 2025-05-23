@@ -29,8 +29,12 @@ def addEmployeDataApi(data):
     connection.commit()
 
     if check is None:
-        query = "INSERT INTO employe (name, role, salary_hourly) VALUES (%s, %s, %s)"
-        value = (name, position, salary_hr)
+        current_datetime = datetime.datetime.now()
+        formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+
+        query = "INSERT INTO employe (name, role, salary_hourly, created_at, updated_at) VALUES (%s, %s, %s, %s, %s)"
+        value = (name, position, salary_hr, formatted_datetime, formatted_datetime)
+
         cursor.close()
         connection.close()
         return 'Data added'
