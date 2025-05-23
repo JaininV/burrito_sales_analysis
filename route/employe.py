@@ -7,7 +7,7 @@ def employe_data_api():
     data = employeData()
     return data
 
-@employe_blueprint.route('/employe/add', methods=['PUSH'])
+@employe_blueprint.route('/employe/add', methods=['POST'])
 def add_employe_data_api():
     data = addEmployeData()
     return data

@@ -30,7 +30,7 @@ def addEmployeDataApi(data):
     postal = data['postal_code']
 
 
-    cursor.execute("SELECT * FROM employe WHERE name = %s AND active = %s", (name, 1))
+    cursor.execute("SELECT * FROM employe WHERE first_name = %s AND last_name = %s AND active = %s", (f_name, l_name, 1))
     check = cursor.fetchone()
     connection.commit()
 
@@ -41,9 +41,22 @@ def addEmployeDataApi(data):
         query = "INSERT INTO employe (first_name, last_name, role, salary_hourly, email_id, phone_number, address, postal_code, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         value = (f_name, l_name, position, salary_hr, email, phone_number, address, postal, formatted_datetime, formatted_datetime)
 
+        cursor.execute(query, value)
+        connection.commit()
         cursor.close()
         connection.close()
-        return 'Data added'
+
+        return "asdasdas"
+        # try:
+        #     cursor.execute(query, value)
+        #     connection.commit()
+        #     cursor.close()
+        #     connection.close()
+
+        #     return 'Data added'
+        
+        # except Exception as e:
+        #     return f"Error: {str(e)}"
     
     else:
         return 'Employe already working'

@@ -8,5 +8,6 @@ def employeData():
     return data
 
 def addEmployeData():
-    data = addEmployeDataApi(data)
-    return data
+    data = request.form
+    page = addEmployeDataApi(data)
+    return page
