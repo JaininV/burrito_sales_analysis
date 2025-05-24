@@ -92,11 +92,13 @@ def upadteEmployeDataApi(data):
                 'status': 'sucess',
                 'message': 'Employe Not Found'
             }
-        return 1
-
 
     except Exception as err:
         return {
             'status': 'error',
             'message': str(err)
         }
+    
+    finally:
+        cursor.close()
+        connection.close()
