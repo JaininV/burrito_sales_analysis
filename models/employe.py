@@ -61,13 +61,39 @@ def upadteEmployeDataApi(data):
         cursor = connection.cursor()
         f_name = data['first_name']
         l_name = data['last_name']
+        user_id = data['user_id']
         position = data['role']
         salary_hr = data['salary_hourly']
         email = data['email_id']
         phone_number = data['phone_number']
         address = data['address']
         postal = data['postal_code']
+
+        check_query = "SELECT * FROM employe WHERE user_id = %s"
+        check_value = (user_id)
+        cursor.execute(check_query, check_value)
+        check_result = cursor.fetchone()
+
+        if check_result:
+            current_datetime = datetime.datetime.now()
+            formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+            user_id = "_".join([f_name, l_name])
+            query = "UPDATE employe SET first_name = %s, last_name = %s, user_id = %s, role = %s, salary_hourly = %s, email_id = %s, phone_number = %s, address = %s, postal_code = %s, updated_at = %s WHERE user_id = %s"
+            value = (f_name, l_name, user_id, position, salary_hr, email, phone_number, address, postal, formatted_datetime, user_id)
+            cursor.execute(query, value)
+            
+            return {
+                'status': 'sucess',
+                'message': 'Data update sucessfully'
+            }
+        
+        else:
+            return{
+                'status': 'sucess',
+                'message': 'Employe Not Found'
+            }
         return 1
+
 
     except Exception as err:
         return {
