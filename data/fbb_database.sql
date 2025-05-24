@@ -1,0 +1,1 @@
+delete from employe where 'first_name' = 'Jainin';

@@ -22,6 +22,7 @@ def addEmployeDataApi(data):
     cursor = connection.cursor()
     f_name = data['first_name']
     l_name = data['last_name']
+    user_id = "_".join([f_name, l_name])
     position = data['role']
     salary_hr = data['salary_hourly']
     email = data['email_id']
@@ -30,7 +31,7 @@ def addEmployeDataApi(data):
     postal = data['postal_code']
 
 
-    cursor.execute("SELECT * FROM employe WHERE first_name = %s AND last_name = %s AND active = %s", (f_name, l_name, 1))
+    cursor.execute("SELECT * FROM employe WHERE first_name = %s AND last_name = %s AND user_id = %s AND active = %s", (f_name, l_name, user_id, 1))
     check = cursor.fetchone()
     connection.commit()
 
@@ -38,8 +39,8 @@ def addEmployeDataApi(data):
         current_datetime = datetime.datetime.now()
         formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
-        query = "INSERT INTO employe (first_name, last_name, role, salary_hourly, email_id, phone_number, address, postal_code, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        value = (f_name, l_name, position, salary_hr, email, phone_number, address, postal, formatted_datetime, formatted_datetime)
+        query = "INSERT INTO employe (first_name, last_name, user_id, role, salary_hourly, email_id, phone_number, address, postal_code, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        value = (f_name, l_name, user_id, position, salary_hr, email, phone_number, address, postal, formatted_datetime, formatted_datetime)
 
         try:
             cursor.execute(query, value)
@@ -54,3 +55,22 @@ def addEmployeDataApi(data):
     
     else:
         return 'Employe already working'
+
+def upadteEmployeDataApi(data):
+    try:
+        cursor = connection.cursor()
+        f_name = data['first_name']
+        l_name = data['last_name']
+        position = data['role']
+        salary_hr = data['salary_hourly']
+        email = data['email_id']
+        phone_number = data['phone_number']
+        address = data['address']
+        postal = data['postal_code']
+        return 1
+
+    except Exception as err:
+        return {
+            'status': 'error',
+            'message': str(err)
+        }
