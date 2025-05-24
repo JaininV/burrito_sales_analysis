@@ -62,7 +62,7 @@ def upadteEmployeDataApi(data):
         cursor = connection.cursor()
         f_name = data['first_name']
         l_name = data['last_name']
-        user_id = data['user_id']
+        user_id = str(data['user_id'])
         position = data['role']
         salary_hr = data['salary_hourly']
         email = data['email_id']
