@@ -1,1 +1,1 @@
-delete from employe where 'first_name' = 'Jainin';
+SELECT * FROM fbb_database.employe;
