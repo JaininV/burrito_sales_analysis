@@ -6,7 +6,7 @@ import json
 # Simulated async function
 def getEmployeDataApi():
     query = "SELECT * FROM employe"
-
+    cursor = connection.cursor()
     cursor.execute(query)
     result = cursor.fetchall()
     connection.commit()
@@ -45,14 +45,15 @@ def addEmployeDataApi(data):
         try:
             cursor.execute(query, value)
             connection.commit()
-            cursor.close()
-            connection.close()
 
             return 'Data added'
         
         except Exception as e:
             return f"Error: {str(e)}"
-    
+
+        finally:
+            cursor.close()
+            connection.close()
     else:
         return 'Employe already working'
 
