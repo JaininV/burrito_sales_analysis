@@ -1,1 +1,1 @@
-SELECT * FROM fbb_database.employe;
+SELECT * FROM fbb_database.inventory;

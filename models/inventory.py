@@ -151,7 +151,7 @@ def addWholeDataApi():
         ('churos', random.randint(0,7), 1, random.randint(40,500), formatted_datetime, formatted_datetime),
     )
 
-    cursor.execute(query, vales)
+    cursor.executemany(query, vales)
     connection.commit()
     cursor.close()
     connection.close()
