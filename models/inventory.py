@@ -4,8 +4,8 @@ import datetime
 import json
 
 # Simulated async function
-def getEmployeDataApi():
-    query = "SELECT * FROM employe"
+def getInventoryDataApi():
+    query = "SELECT * FROM inventory"
     cursor = connection.cursor()
     cursor.execute(query)
     result = cursor.fetchall()
