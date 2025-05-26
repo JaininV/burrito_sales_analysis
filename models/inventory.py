@@ -105,3 +105,8 @@ def upadteEmployeDataApi(data):
     finally:
         cursor.close()
         connection.close()
+
+
+def addWholeDataApi(data):
+    cursor = connection.cursor()
+    
