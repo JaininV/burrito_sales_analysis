@@ -1,1 +1,1 @@
-SELECT * FROM fbb_database.inventory;
+SELECT * FROM fbb_database.menu_item;
