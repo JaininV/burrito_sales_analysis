@@ -7,7 +7,7 @@ def inventory_data_api():
     page = inventoryData()
     return page
 
-@menu_blueprint.route('/menu/item', methods=['PUSH'])
+@menu_blueprint.route('/menu/item', methods=['POST'])
 def add_whole_data_api():
     page = addWholeData()
     return page
