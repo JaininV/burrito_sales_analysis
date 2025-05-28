@@ -23,10 +23,10 @@ def addSalesDataApi():
     current_datetime = datetime.datetime.now()
     formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
     
-    # item_id = "SELECT item_id FROM menu_item WHERE active = %s"
-    # cursor.execute(item_id, [1])
-    # item_id = cursor.fetchall()
-    # connection.commit()
+    item_id = "SELECT item_id FROM menu_item WHERE active = %s"
+    cursor.execute(item_id, [1])
+    item_id = cursor.fetchall()
+    connection.commit()
 
     start_date = datetime.date(2024, 1, 1)
     end_date = datetime.date(2024, 1, 2)
@@ -41,6 +41,7 @@ def addSalesDataApi():
     current_date = start_date
 
     # build while loop for days
+    data = []
     while current_date < end_date:
         # start time
         dt_start = datetime.datetime.combine(current_date, store_open)
@@ -54,7 +55,15 @@ def addSalesDataApi():
             date = dt_next.date()
             time = dt_next.time()
             day = dt_next.strftime("%A")
-            
+            item = item_id[random.randint(0,51)][0]
+            x = [
+                date,
+                time,
+                day,
+                item,
+                random.randint(1,10)
+                
+            ]
             dt_start = dt_next
 
     return {
