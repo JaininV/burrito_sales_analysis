@@ -73,7 +73,11 @@ def addSalesDataApi():
             data.append(x)
             dt_start = dt_next
 
-    query = 
+    query = "INSERT INTO sales (sale_date, sale_time, sale_day, item_id, quantity, total_price, store_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    cursor.executemany(query, data)
+    connection.commit()
+    cursor.close()
+    connection.close()
     return {
             'status': 'sucess',
             'message': 'Data added'
