@@ -56,16 +56,24 @@ def addSalesDataApi():
             time = dt_next.time()
             day = dt_next.strftime("%A")
             item = item_id[random.randint(0,51)][0]
+            qun = random.randint(1, 10)
+            item_price = cursor.execute("SELECT sale_price FROM menu_item WHERE item_id = %s", [item])
+            item_price = cursor.fetchone()
+            connection.commit()
+            
+            price = qun * item_price[0]
             x = [
                 date,
                 time,
                 day,
                 item,
-                random.randint(1,10)
-                
+                qun,
+                price
             ]
+            data.append(x)
             dt_start = dt_next
 
+    query = 
     return {
             'status': 'sucess',
             'message': 'Data added'
