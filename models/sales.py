@@ -28,8 +28,8 @@ def addSalesDataApi():
     item_id = cursor.fetchall()
     connection.commit()
 
-    start_date = datetime.date(2024, 1, 1)
-    end_date = datetime.date(2024, 1, 2)
+    start_date = datetime.date(2023, 2, 1)
+    end_date = datetime.date(2025, 1, 2)
 
     # set store hours
     store_open = datetime.time(11, 0)
@@ -68,7 +68,8 @@ def addSalesDataApi():
                 day,
                 item,
                 qun,
-                price
+                price,
+                1
             ]
             data.append(x)
             dt_start = dt_next
