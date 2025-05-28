@@ -8,6 +8,6 @@ def inventory_data_api():
     return page
 
 @sales_blueprint.route('/sales/item', methods=['POST'])
-def add_whole_data_api():
+def add_sales_data_api():
     page = addSalesData()
     return page

@@ -24,11 +24,11 @@ def addSalesDataApi():
     formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
     
     item_id = "SELECT item_id FROM menu_item WHERE active = %s"
-    cursor.execute(item_id, (1))
+    cursor.execute(item_id, [1])
     item_id = cursor.fetchall()
     connection.commit()
-    print(item_id)
 
+    
     return {
             'status': 'sucess',
             'message': 'Data added'
