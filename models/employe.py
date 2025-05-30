@@ -11,7 +11,7 @@ def getEmployeDataApi():
     result = cursor.fetchall()
     connection.commit()
     cursor.close()
-    connection.close()
+    
 
     return {
         'data': result
@@ -53,7 +53,7 @@ def addEmployeDataApi(data):
 
         finally:
             cursor.close()
-            connection.close()
+            
     else:
         return 'Employe already working'
 
@@ -104,4 +104,4 @@ def upadteEmployeDataApi(data):
     
     finally:
         cursor.close()
-        connection.close()
+        

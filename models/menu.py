@@ -12,7 +12,7 @@ def getInventoryDataApi():
     result = cursor.fetchall()
     connection.commit()
     cursor.close()
-    connection.close()
+    
 
     return {
         'data': result
@@ -81,7 +81,7 @@ def addWholeDataApi():
     cursor.executemany(query, vales)
     connection.commit()
     cursor.close()
-    connection.close()
+    
     return {
             'status': 'sucess',
             'message': 'Data added'
