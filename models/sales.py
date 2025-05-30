@@ -6,8 +6,8 @@ import random
 
 # Simulated async function
 def getInventoryDataApi():
-    query = "SELECT * FROM inventory"
     cursor = connection.cursor()
+    query = "SELECT sale_date, SUM(total_price) as total_sale FROM sales GROUP BY sale_date ORDER BY sale_date"
     cursor.execute(query)
     result = cursor.fetchall()
     connection.commit()
