@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from db_connection import connection, cursor
+from db_connection import config, connection, cursor
 import datetime
 import json
 import random
@@ -12,7 +12,6 @@ def getInventoryDataApi():
     result = cursor.fetchall()
     connection.commit()
     cursor.close()
-    connection.close()
 
     return {
         'data': result
@@ -78,7 +77,6 @@ def addSalesDataApi():
     cursor.executemany(query, data)
     connection.commit()
     cursor.close()
-    connection.close()
     return {
             'status': 'sucess',
             'message': 'Data added'
