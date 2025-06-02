@@ -5,7 +5,7 @@ import json
 import random
 
 # Simulated async function
-def getInventoryDataApi():
+def getSaleDataApi():
     cursor = connection.cursor()
     query = "SELECT sale_date, SUM(total_price) as total_sale FROM sales GROUP BY sale_date ORDER BY sale_date"
     cursor.execute(query)

@@ -1,10 +1,10 @@
 from flask import Blueprint,  jsonify
-from controller.sales import inventoryData, addSalesData
+from controller.sales import saleData, addSalesData
 
 sales_blueprint = Blueprint('sales', __name__)
 @sales_blueprint.route('/sales', methods=['GET'])
-def inventory_data_api():
-    page = inventoryData()
+def sale_data_api():
+    page = saleData()
     return page
 
 @sales_blueprint.route('/sales/item', methods=['POST'])
