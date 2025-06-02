@@ -1,10 +1,10 @@
 #Import users function from model folder
 from flask import Flask, render_template, jsonify, request
-from models.menu import getInventoryDataApi, addWholeDataApi
+from models.menu import getMenuDataApi, addWholeDataApi
 import asyncio
 
-def inventoryData():
-    page = getInventoryDataApi()
+def menuData():
+    page = getMenuDataApi()
     return page
 
 def addWholeData():

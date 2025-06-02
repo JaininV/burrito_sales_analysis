@@ -5,7 +5,7 @@ import json
 import random
 
 # Simulated async function
-def getInventoryDataApi():
+def getMenuDataApi():
     query = "SELECT * FROM inventory"
     cursor = connection.cursor()
     cursor.execute(query)

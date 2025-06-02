@@ -1,10 +1,10 @@
 from flask import Blueprint,  jsonify
-from controller.menu import inventoryData, addWholeData
+from controller.menu import menuData, addWholeData
 
 menu_blueprint = Blueprint('menu', __name__)
 @menu_blueprint.route('/menu', methods=['GET'])
-def inventory_data_api():
-    page = inventoryData()
+def menu_data_api():
+    page = menuData()
     return page
 
 @menu_blueprint.route('/menu/item', methods=['POST'])
