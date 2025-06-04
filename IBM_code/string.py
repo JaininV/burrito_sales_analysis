@@ -1,6 +1,27 @@
 # start code
 str = input("Give your input: ")
 
+# sort array
+def sorting_arr(data):
+    arr = data
+    l = len(arr)
+    for i in range(l):
+        for j in range(0, l-i-1):
+            if arr[j] > arr[j+1]:
+                k = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = k
+    return arr
+
+# converting ascii value in chr
+def convert_chr(data):
+    result = ""
+    print(data)
+    for i in data:
+        x = chr(i)
+        result += x
+    return result
+    
 def convert_string(str):
     result = ""
     for i in str:
@@ -17,21 +38,10 @@ def convert_string(str):
         if asc not in asc_val:
             asc_val.append(asc)
     
-    # sort array
-    y = 0
-    for j in range(len(asc_val)):
-        for k in range(0, len(asc_val) - j - 1):
-            if asc_val[k] >asc_val[k+1]:
-                y = asc_val[j]
-                asc_val[j] = asc_val[j+1]
-                asc_val[j+1] = y
-                
-    # get string
-    final_result = ""
-    for i in asc_val:
-        ch = chr(i)
-        final_result += ch
-    return final_result
-
+    # call sorting array code
+    asc_val = sorting_arr(asc_val)
+    clean_chr = convert_chr(asc_val)            
+ 
+    return clean_chr
 
 print(convert_string(str))
