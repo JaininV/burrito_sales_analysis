@@ -28,7 +28,7 @@ def addSalesDataApi():
     connection.commit()
 
     start_date = datetime.date(2024, 2, 1)
-    end_date = datetime.date(2025, 6, 10)
+    end_date = datetime.date(2025, 6, 30)
 
     # set store hours
     store_open = datetime.time(11, 0)
