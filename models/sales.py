@@ -81,5 +81,5 @@ def addSalesDataApi():
             'status': 'sucess',
             'message': 'Data added'
         }
-# #DB1F27
+#DB1F27
 #F9FDFF
