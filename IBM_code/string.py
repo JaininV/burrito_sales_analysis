@@ -24,7 +24,7 @@ def convert_chr(data):
     
 def convert_string(str):
     result = ""
-    for i in str:
+    for i in str: 
         x = ord(i)
         if 48<= x <= 57:
             continue

@@ -11,4 +11,4 @@ def convert_binary(data):
     return bin
 
 result = convert_binary(num)
-print(result)
+print(result) 

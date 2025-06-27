@@ -10,4 +10,4 @@ def factorial(number):
 
 num = int(input("Enter your desire number: "))
 result = factorial(num)
-print(result)
+print(result) 

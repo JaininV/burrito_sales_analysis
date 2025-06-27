@@ -10,4 +10,4 @@ def convert_number_iin_digit(data):
     
     return sum
 result = convert_number_iin_digit(num)
-print(result)
+print(result) 

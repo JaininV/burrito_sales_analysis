@@ -25,7 +25,7 @@ for i in val_1:
     
 
 for i in val_2:
-    x = val[1]%i
+    x = val[1]%i 
     if x == 0:
         hcf_2.append(i)
 
