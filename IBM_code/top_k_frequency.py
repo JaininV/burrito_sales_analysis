@@ -32,4 +32,4 @@ def most_frequent_values(num, k):
     return result
 # call funtion
 result = most_frequent_values(arr, k)
-# print(result)
+print(result)
