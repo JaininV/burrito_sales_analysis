@@ -11,7 +11,7 @@ def most_frequent_values(num, k):
             if num[j] > num[j+1]:
                 n = num[j]
                 num[j] = num[j+1]
-                num[j+1] = nqs  sAS
+                num[j+1] 
     
     # Make disc for frequency of each element
     disc = {}
