@@ -12,4 +12,3 @@ def convert_binary(data):
 
 result = convert_binary(num)
 print(result) 
-# regular checking
